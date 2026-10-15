@@ -1,0 +1,44 @@
+.ea2-controles {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ea2-controles > .campo {
+  min-width: 0;
+}
+
+#lista-auditoria {
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+  .ea2-controles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* R3: confirmación visual del cambio de estado */
+.ea2-actualizada {
+  animation: ea2-confirmacion 700ms ease-out;
+}
+
+@keyframes ea2-confirmacion {
+  0% {
+    background-color: #d1fae5;
+    outline: 2px solid #10b981;
+  }
+
+  100% {
+    background-color: transparent;
+    outline-color: transparent;
+  }
+}
+
+/* Mantiene el mensaje visible sin animación */
+@media (prefers-reduced-motion: reduce) {
+  .ea2-actualizada {
+    animation: none;
+    outline: 2px solid #10b981;
+  }
+}
